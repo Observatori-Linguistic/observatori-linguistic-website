@@ -1,0 +1,162 @@
+/* Observatori Lingüístic Escolar: complements de la web (afegits per postproces.py) */
+
+/* variants carregades a demanda */
+[data-vl]:empty{min-height:40vh}
+[data-vl][data-vc]:empty::before{content:attr(data-vc);display:block;padding:4rem 1rem;text-align:center;color:var(--ink-3);font-size:.95rem}
+
+/* quins centres compten a cada secció */
+.pp-ab{display:flex;align-items:center;gap:.45em;margin:.55rem 0 0;font-size:.8125rem;color:var(--ink-3);line-height:1.35}
+.pp-ab::before{content:"";flex:none;width:.55em;height:.55em;border-radius:50%;background:var(--gold)}
+.sh .pp-ab,.sh p.pp-ab{max-width:none;font-size:.8125rem;margin-top:.55rem}
+.pp-ab .v{font-weight:600;color:var(--ink-2)}
+
+/* fitxa: enllaç al nom i avís d'error */
+.fx-id h3 a{color:inherit;text-decoration:none}
+.fx-id h3 a:hover,.fx-id h3 a:focus-visible{text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:1px}
+.fx-err{margin:0;padding:.35rem 1.25rem .9rem;font-size:.78rem;text-align:right}
+.fx-err a{color:var(--ink-3);text-decoration:none;border-bottom:1px dotted currentColor}
+.fx-err a:hover{color:var(--ink-2)}
+
+/* pàgina d'un centre */
+.pp-centre .ph-s{margin-bottom:0}
+.pp-centre .sec{padding-top:12px}
+.pp-centre .lgd-f{margin:0 0 1rem}
+.pp-centre .fx-id h3{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pp-tornar{margin:1.5rem 0 0;font-size:.95rem}
+.pp-tornar a{font-weight:600}
+.pp-nota{margin:1.25rem 0 0;font-size:.85rem;color:var(--ink-3)}
+
+/* comarques i municipis (mapa del web) */
+.pp-comarques .abast-n{margin-top:18px}
+.pp-coms{columns:3 260px;column-gap:40px}
+.pp-com{break-inside:avoid;margin:0 0 26px}
+.pp-com h3{font:650 17px/1.3 var(--display,inherit);margin:0 0 8px;letter-spacing:-.01em}
+.pp-com h3 a{color:var(--ink);text-decoration:none}
+.pp-com h3 a:hover{text-decoration:underline}
+.pp-com h3 span{font-weight:500;font-size:13px;color:var(--ink-3);margin-left:4px}
+.pp-com ul{list-style:none;margin:0;padding:0;font-size:14.5px;line-height:1.75}
+.pp-com li a{color:var(--ink-2);text-decoration:none}
+.pp-com li a:hover{color:var(--navy-2);text-decoration:underline}
+.pp-dist{font-size:13px;color:var(--ink-3)}
+.pp-dist a{color:var(--ink-3)!important}
+.peu .peu-mapa{margin-top:.6rem}
+
+/* peu */
+.peu .peu-pare{font-size:.82rem;color:var(--ink-3);margin-top:.5rem}
+.peu .peu-c{font-size:.78rem;color:var(--ink-3)}
+.peu .peu-c a,.peu .peu-c button{color:inherit}
+.prosa button.pp-lnk{color:var(--navy-2);text-decoration-style:solid;text-decoration-thickness:1px;text-underline-offset:.18em}
+button.pp-lnk{all:unset;cursor:pointer;color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:.15em}
+button.pp-lnk:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:2px}
+
+/* textos massa petits */
+.cal-n13 .cl-x .cl-t span,.cal-n15 .cl-x .cl-t span{font-size:11px}
+.td-l .xip i,.tl thead .xip i,.fb .mt .xip i,.fb .cat .xip i,.q .xip i,.cfx-l .xip i{font-size:11px}
+.cn-xc span{font-size:11px}
+.dq-et>span{font-size:11px}
+
+/* castellà: textos en la llengua original del document */
+html[lang="es"] .fb .sub[lang="ca"]::before{content:"Texto original · ";font-style:normal;font-weight:600;color:var(--ink-3)}
+
+/* mòbil: zones tàctils i subnavegació que s'amaga en baixar */
+@media (max-width:720px){
+  th a,th button,.molles a,.hero-l a,.peu a,.peu button.pp-lnk,.fx-err a{display:inline-block;padding-block:4px;min-height:24px;box-sizing:border-box}
+  td a{display:inline-block;padding-block:3px}
+}
+
+/* una sola capçalera: el filtre de tipus de centre hi va en un menú compacte */
+.pp-abm{position:relative;flex:none}
+.pp-abm summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--line-2);
+  border-radius:999px;font-size:14px;font-weight:600;color:var(--ink);background:var(--surface);white-space:nowrap;user-select:none}
+.pp-abm summary::-webkit-details-marker{display:none}
+.pp-abm summary::after{content:"";width:6px;height:6px;border-right:1.6px solid var(--ink-3);border-bottom:1.6px solid var(--ink-3);transform:translateY(-2px) rotate(45deg);margin-left:3px}
+.pp-abm[open] summary::after{transform:translateY(1px) rotate(225deg)}
+.pp-abm summary:hover{border-color:var(--ink-3)}
+.pp-abm summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.pp-abm .pp-abm-t{font-weight:500;color:var(--ink-3)}
+.pp-abm-p{position:absolute;right:0;top:calc(100% + 8px);z-index:45;background:var(--surface);border:1px solid var(--line-2);border-radius:14px;
+  box-shadow:0 12px 32px rgba(20,15,5,.16);padding:14px 14px 12px;width:max-content;max-width:min(92vw,400px)}
+.top .pp-abm .filtre,.pp-abm .filtre{display:flex!important;margin:0}
+.pp-abm .ab-t{display:none}
+.pp-abm-p p{margin:10px 2px 0;font-size:12.5px;line-height:1.45;color:var(--ink-3);max-width:330px}
+.top-in{gap:16px}
+.nav>a{white-space:nowrap}
+.top .cerca{max-width:280px}
+.pp-abm-v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.pp-canvia{margin-left:4px;font-weight:600;color:var(--navy-2)!important;text-decoration-style:solid!important}
+@media (max-width:1360px){.top-in:has(.cerca) .pp-abm-t{display:none}.top .cerca{max-width:230px}}
+@media (max-width:1180px){.top .cerca{max-width:190px}.nav>a{padding:7px 8px;font-size:14.5px}.pp-abm-t{display:none}}
+@media (max-width:1100px) and (min-width:721px){.top-in:has(.cerca) .marca .mw{display:none}}
+@media (max-width:960px) and (min-width:721px){.nav>a{font-size:14px;padding:6px 6px}.top-in{gap:10px}}
+
+/* les seccions de la pàgina, segona línia de la mateixa capçalera */
+.top .subnav.pp-index{position:static;z-index:auto;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border:0;border-top:1px solid var(--line)}
+.top .subnav.pp-index .subnav-in{padding-top:5px;padding-bottom:5px}
+.top .subnav.pp-index a{padding:5px 11px;font-size:13.5px}
+.top .subnav.pp-index a .ic{width:15px;height:15px}
+
+/* mòbil: la capçalera és fixa, però s'amaga en baixar i torna en pujar */
+.pp-idioma{flex:none}
+@media (max-width:960px) and (min-width:721px){.top-in{flex-wrap:wrap}.top .cerca{order:5;flex:1 1 100%;max-width:none}}
+@media (max-width:720px){
+  .top{position:sticky;top:0;transition:transform .22s ease}
+  .top.pp-amaga{transform:translateY(calc(-100% - 2px))}
+  .top-in{column-gap:8px;row-gap:8px}
+  .marca{order:1;gap:8px}
+  .marca .mw>span{display:block;font-size:12px;line-height:1.2}
+  .pp-idioma{order:2;margin-left:auto}
+  .pp-abm{order:3;margin-left:0}
+  .pp-abm summary{padding:5px 10px;font-size:13px}
+  .pp-abm .pp-abm-t{display:none}
+  .top .cerca{order:4;flex:1 1 120px;max-width:none!important;min-width:0}
+  .top .cerca-f,.top .cerca input{min-width:0}
+  .top .nav{order:5;flex:1 1 100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:0;margin-left:0}
+  .top .nav::-webkit-scrollbar{display:none}
+  .top .nav>a{font-size:13px;padding:5px 7px}
+  .top .nav>a:first-child{padding-left:0}
+  .top .subnav.pp-index .subnav-in{padding:3px 12px}
+  .top .subnav.pp-index a{padding:5px 9px;font-size:13px}
+  .pp-abm-p{position:fixed;left:12px;right:12px;top:auto;width:auto;max-width:none;margin-top:8px}
+}
+@media (prefers-reduced-motion:reduce){.top{transition:none}}
+
+/* gràfics de calendari: una mica d'aire entre les files de cada llengua */
+.cal [role="list"]{display:grid;row-gap:5px}
+
+/* panell de detall: l'ordre és una opció discreta */
+.dq-f{align-items:center}
+.dq-f select{border:0;background:transparent;color:var(--ink-3);font-size:12.5px;padding:2px 2px 2px 6px;cursor:pointer;min-height:0;height:auto;max-width:45%}
+.dq-f select:hover,.dq-f select:focus-visible{color:var(--ink)}
+
+/* pàgina del projecte lingüístic */
+.pp-pl .sec{margin-top:18px}
+.pp-pl .any-p{grid-template-columns:1fr;gap:20px}
+.pp-pl .pp-sh .sh-i{display:none}
+.pp-pl .pp-sh{margin-bottom:12px}
+.pp-pl .pp-sh p{font-size:14px;color:var(--ink-3)}
+.pp-toc{margin:8px 0 8px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.pp-toc p{margin:0 0 6px;font-size:12px;font-weight:650;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.pp-toc ol{margin:0;padding-left:20px;columns:2 220px;font-size:15px;line-height:1.8}
+.yc-ab .yc-x{font-size:10.5px}
+@media (max-width:560px){.yc{gap:2px}.yc-x{font-size:9.5px;letter-spacing:-.02em}.yc-ab .yc-x{font-size:9px}}
+
+/* llengües oficials: sota cada xifra, què compta */
+.cc-g.pp-cg{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:14px;align-items:end;margin:18px 0 4px}
+.sec-dr .cc-f:not(.cc-cap){min-height:38px}
+.pp-cgt{text-align:center}
+.pp-cgc{font:500 11.5px/1.25 var(--sans);letter-spacing:0;text-transform:none;color:var(--ink-3)}
+.pp-cgc-e{text-align:left}
+.pp-cgc-d{text-align:right}
+@media (max-width:560px){.cc-g.pp-cg{grid-template-columns:1fr 1fr;gap:4px 10px}.pp-cgt{grid-column:1/-1;grid-row:1}.sec-dr .cc-f:not(.cc-cap){min-height:0}}
+
+/* taula de comarques i municipis: la mateixa mesura per a cada llengua, etapa a etapa */
+.pp-llocs .pp-et-tabs{justify-content:flex-start;margin:4px 0 12px}
+.pp-llocs .pp-tl-lg{justify-content:flex-start;margin:0 0 14px}
+.pp-llocs .pp-et-t{display:none}
+.pp-llocs[data-pp-et-on="infantil"] .pp-et-t[data-et="infantil"],
+.pp-llocs[data-pp-et-on="primaria"] .pp-et-t[data-et="primaria"],
+.pp-llocs[data-pp-et-on="eso"] .pp-et-t[data-et="eso"],
+.pp-llocs[data-pp-et-on="batxillerat"] .pp-et-t[data-et="batxillerat"]{display:block}
+.tl .cc-t.pp-mini{display:inline-flex;vertical-align:middle;width:96px;height:12px;border-radius:4px;flex:none;cursor:pointer}
+.tl td.pp-buit{color:var(--ink-3)}
+@media (max-width:560px){.tl .cc-t.pp-mini{width:60px}}
